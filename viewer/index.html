@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jouzu Desktop UI atlas</title>
+<style>
+  :root { color-scheme: light dark; --bg: #fff; --fg: #1a1a1a; --muted: #666; --line: #ddd; --mark: #c2410c; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #141414; --fg: #eee; --muted: #999; --line: #333; --mark: #fb923c; } }
+  body { margin: 0; font: 14px/1.4 system-ui, sans-serif; background: var(--bg); color: var(--fg); }
+  header { position: sticky; top: 0; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 10px 16px; background: var(--bg); border-bottom: 1px solid var(--line); z-index: 1; }
+  header label { color: var(--muted); }
+  select, input { font: inherit; }
+  main { padding: 16px; }
+  h2 { font-size: 15px; margin: 24px 0 8px; }
+  .state { border: 1px solid var(--line); border-radius: 8px; padding: 10px; margin: 0 0 12px; }
+  .state.changed { border-color: var(--mark); }
+  .meta { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+  .pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 8px; }
+  .pair img { width: 100%; border: 1px solid var(--line); border-radius: 4px; }
+  details pre { white-space: pre-wrap; font-size: 12px; max-height: 300px; overflow: auto; }
+</style>
+</head>
+<body>
+<header>
+  <label>Version <select id="version"></select></label>
+  <label>Compare with <select id="against"><option value="">none</option></select></label>
+  <label>Language <select id="lang"></select></label>
+  <label>Device <select id="device"></select></label>
+  <label>Theme <select id="theme"></select></label>
+  <label><input type="checkbox" id="onlyChanged"> Only changed</label>
+  <input id="filter" type="search" placeholder="Filter by id or words">
+  <span id="count" class="meta"></span>
+</header>
+<main id="list"></main>
+<script src="data/versions.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const loaded = {};
+function load(version) {
+  if (!version || loaded[version]) return Promise.resolve();
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = `data/${version}.js`;
+    script.onload = () => { loaded[version] = true; resolve(); };
+    script.onerror = reject;
+    document.head.append(script);
+  });
+}
+function options(select, values, keep) {
+  const current = select.value;
+  select.replaceChildren(...(keep ? [new Option(keep, "")] : []), ...values.map(value => new Option(value, value)));
+  if ([...select.options].some(option => option.value === current)) select.value = current;
+}
+const key = state => `${state.id}|${state.lang}|${state.device}|${state.theme}`;
+const image = blob => { const img = document.createElement("img"); img.loading = "lazy"; img.src = `../atlas/blobs/${blob}`; img.alt = ""; return img; };
+async function render() {
+  await load($("version").value); await load($("against").value);
+  const states = window.ATLAS?.[$("version").value]?.states ?? [];
+  const before = new Map((window.ATLAS?.[$("against").value]?.states ?? []).map(state => [key(state), state]));
+  for (const field of ["lang", "device", "theme"]) options($(field), [...new Set(states.map(state => state[field]))].sort());
+  const text = $("filter").value.toLowerCase();
+  const shown = states.filter(state => state.lang === $("lang").value && state.device === $("device").value && state.theme === $("theme").value)
+    .map(state => ({ state, was: before.get(key(state)) }))
+    .map(entry => ({ ...entry, changed: $("against").value ? !entry.was || entry.was.blob !== entry.state.blob || JSON.stringify(entry.was.words) !== JSON.stringify(entry.state.words) : false }))
+    .filter(entry => !$("onlyChanged").checked || entry.changed)
+    .filter(entry => !text || entry.state.id.includes(text) || JSON.stringify(entry.state.words ?? "").toLowerCase().includes(text));
+  $("count").textContent = `${shown.length} states`;
+  const list = $("list"); list.replaceChildren();
+  let group = null;
+  for (const { state, was, changed } of shown) {
+    if (state.group !== group) { group = state.group; const h = document.createElement("h2"); h.textContent = group || "(no group)"; list.append(h); }
+    const box = document.createElement("section"); box.className = `state${changed ? " changed" : ""}`;
+    const meta = document.createElement("div"); meta.className = "meta";
+    meta.textContent = `${state.id}${state.note ? ` · ${state.note}` : ""}${changed ? (was ? " · changed" : " · new") : ""}`;
+    const pair = document.createElement("div"); pair.className = "pair";
+    if ($("against").value && was && changed) pair.append(image(was.blob));
+    pair.append(image(state.blob));
+    const words = document.createElement("details"); words.innerHTML = "<summary>Words on screen</summary>";
+    const pre = document.createElement("pre"); pre.textContent = JSON.stringify(state.words, null, 2); words.append(pre);
+    box.append(meta, pair, words); list.append(box);
+  }
+}
+const versions = window.ATLAS_VERSIONS ?? [];
+options($("version"), [...versions].reverse()); options($("against"), [...versions].reverse(), "none");
+for (const id of ["version", "against", "lang", "device", "theme", "onlyChanged", "filter"]) $(id).addEventListener("input", render);
+render();
+</script>
+</body>
+</html>
