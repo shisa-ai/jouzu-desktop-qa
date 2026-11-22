@@ -1,0 +1,44 @@
+{
+  "group": "Panels",
+  "name": "split pane",
+  "note": "The workspace sidebar was collapsed through its visible toggle to reach Split pane.",
+  "display": {
+    "width": 1180,
+    "height": 820,
+    "language": "ja",
+    "theme": "dark",
+    "background": "rgb(18, 19, 24)",
+    "screenWidth": 1180,
+    "screenHeight": 820,
+    "visualWidth": 1180,
+    "visualHeight": 820,
+    "dpr": 2,
+    "touchPoints": 1,
+    "pointer": "coarse",
+    "hover": false,
+    "darkPreference": true,
+    "engine": "chromium",
+    "engineVersion": "131.0.6778.33",
+    "emulated": true,
+    "activation": "touch tap"
+  },
+  "words": {
+    "header": "Jouzu",
+    "headerControls": [],
+    "sidebar": null,
+    "conversationTail": "あなた\nWhat is 32 × 7? Reply with only the number.\n224",
+    "composer": "TextGuard\nEnter で送信 · Shift+Enter で改行\nFixture model\n送信",
+    "composerControls": [
+      "動画 URL を追加",
+      "ファイルの追加・コマンドの実行",
+      "TextGuard: オン",
+      "モデル",
+      "送信 [disabled]"
+    ],
+    "aroundComposer": [],
+    "overlays": [],
+    "status": [],
+    "problems": [],
+    "page": "Jouzu\nWhat is 32 × 7? Reply with only the number.\nあなた\n\nWhat is 32 × 7? Reply with only the number.\n\n224\n\nTextGuard\nEnter で送信 · Shift+Enter で改行\nFixture model\n送信\n43%\nスタート\nアーティファクト\nこのセッションで作られた画像とファイル。\nワークスペースのファイル\nこのセッションのワークスペースのファイルを見る。\nスタート\nアーティファクト\nこのセッションで作られた画像とファイル。\nワークスペースのファイル\nこのセッションのワークスペースのファイルを見る。"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "group": "New session",
+  "name": "ready",
+  "note": "",
+  "display": {
+    "width": 390,
+    "height": 844,
+    "language": "en",
+    "theme": "dark",
+    "background": "rgb(18, 19, 24)",
+    "screenWidth": 390,
+    "screenHeight": 844,
+    "visualWidth": 390,
+    "visualHeight": 844,
+    "dpr": 3,
+    "touchPoints": 1,
+    "pointer": "coarse",
+    "hover": false,
+    "darkPreference": true,
+    "engine": "chromium",
+    "engineVersion": "131.0.6778.33",
+    "emulated": true,
+    "activation": "touch tap"
+  },
+  "words": {
+    "header": "Jouzu",
+    "headerControls": [],
+    "sidebar": "New session\nAssistant (experimental)\nArtifacts\nWORKSPACES\ndeleted-folder\nSession whose folder was deleted\nnow\nworkspace\nSession from an older version\nnow\nHalf written session\nnow\nSession with an unknown entry\nnow\nDefault workspace\nNo sessions yet\nSettings",
+    "conversationTail": "",
+    "composer": "Fixture model\nSend",
+    "composerControls": [
+      "Add video URL",
+      "Add files or run commands",
+      "Model",
+      "Send [disabled]"
+    ],
+    "aroundComposer": [],
+    "overlays": [],
+    "status": [],
+    "problems": [],
+    "page": "Jouzu\nNew session\nAssistant (experimental)\nArtifacts\nWORKSPACES\ndeleted-folder\nSession whose folder was deleted\nnow\nworkspace\nSession from an older version\nnow\nHalf written session\nnow\nSession with an unknown entry\nnow\nDefault workspace\n\nNo sessions yet\n\nSettings\nWhat would you like to build?\n\nChoose a workspace, then describe the task. Jouzu can explore code, explain it, or make a change.\n\nDefault workspace\nFixture model\nSend\n0%"
+  }
+}

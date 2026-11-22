@@ -1,0 +1,44 @@
+{
+  "group": "Panels",
+  "name": "split pane",
+  "note": "The workspace sidebar was collapsed through its visible toggle to reach Split pane.",
+  "display": {
+    "width": 1440,
+    "height": 900,
+    "language": "en",
+    "theme": "dark",
+    "background": "rgb(18, 19, 24)",
+    "screenWidth": 1440,
+    "screenHeight": 900,
+    "visualWidth": 1440,
+    "visualHeight": 900,
+    "dpr": 1,
+    "touchPoints": 0,
+    "pointer": "fine",
+    "hover": true,
+    "darkPreference": true,
+    "engine": "chromium",
+    "engineVersion": "131.0.6778.33",
+    "emulated": true,
+    "activation": "mouse click"
+  },
+  "words": {
+    "header": "Jouzu",
+    "headerControls": [],
+    "sidebar": null,
+    "conversationTail": "You\nWhat is 32 × 7? Reply with only the number.\n224",
+    "composer": "TextGuard\nEnter to send · Shift+Enter for newline\nFixture model\nSend",
+    "composerControls": [
+      "Add video URL",
+      "Add files or run commands",
+      "TextGuard: On",
+      "Model",
+      "Send [disabled]"
+    ],
+    "aroundComposer": [],
+    "overlays": [],
+    "status": [],
+    "problems": [],
+    "page": "Jouzu\nWhat is 32 × 7? Reply with only the number.\nYou\n\nWhat is 32 × 7? Reply with only the number.\n\n224\n\nTextGuard\nEnter to send · Shift+Enter for newline\nFixture model\nSend\n43%\nStart\nArtifacts\nImages and files produced in this session.\nWorkspace files\nBrowse files in this session's workspace.\nStart\nArtifacts\nImages and files produced in this session.\nWorkspace files\nBrowse files in this session's workspace."
+  }
+}

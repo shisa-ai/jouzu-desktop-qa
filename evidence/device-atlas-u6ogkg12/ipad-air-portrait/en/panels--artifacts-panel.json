@@ -1,0 +1,44 @@
+{
+  "group": "Panels",
+  "name": "artifacts panel",
+  "note": "",
+  "display": {
+    "width": 820,
+    "height": 1180,
+    "language": "en",
+    "theme": "dark",
+    "background": "rgb(18, 19, 24)",
+    "screenWidth": 820,
+    "screenHeight": 1180,
+    "visualWidth": 820,
+    "visualHeight": 1180,
+    "dpr": 2,
+    "touchPoints": 1,
+    "pointer": "coarse",
+    "hover": false,
+    "darkPreference": true,
+    "engine": "chromium",
+    "engineVersion": "131.0.6778.33",
+    "emulated": true,
+    "activation": "touch tap"
+  },
+  "words": {
+    "header": "Jouzu",
+    "headerControls": [],
+    "sidebar": "New session\nAssistant (experimental)\nArtifacts\nWORKSPACES\nworkspace\nSession with an unknown entry\nFailed\n3m\nHalf written session\nFailed\n3m\nSession from an older version\n3m\nDefault workspace\nWhat is 32 × 7? Reply with only the number.\nnow\nWhat is 28 × 7? Reply with only the number.\n1m\nLONG reply please\n1m\nWhat is 27 × 7? Reply with only the number.\n1m\nWhat is 26 × 7? Reply with only the number.\n2m\nWhat is 25 × 7? Reply with only the number.\n2m\nWhat is 24 × 7? Reply with only the number.\n2m\nWhat is 23 × 7? Reply with only the number.\n2m\nWhat is 21 × 7? Reply with only the number.\n2m\nSession whose folder was deleted\nFailed\n3m\nSettings",
+    "conversationTail": "You\nWhat is 32 × 7? Reply with only the number.\n224",
+    "composer": "TextGuard\nFixture model\nSend",
+    "composerControls": [
+      "Add video URL",
+      "Add files or run commands",
+      "TextGuard: On",
+      "Model",
+      "Send [disabled]"
+    ],
+    "aroundComposer": [],
+    "overlays": [],
+    "status": [],
+    "problems": [],
+    "page": "Jouzu\nNew session\nAssistant (experimental)\nArtifacts\nWORKSPACES\nworkspace\nSession with an unknown entry\nFailed\n3m\nHalf written session\nFailed\n3m\nSession from an older version\n3m\nDefault workspace\nWhat is 32 × 7? Reply with only the number.\nnow\nWhat is 28 × 7? Reply with only the number.\n1m\nLONG reply please\n1m\nWhat is 27 × 7? Reply with only the number.\n1m\nWhat is 26 × 7? Reply with only the number.\n2m\nWhat is 25 × 7? Reply with only the number.\n2m\nWhat is 24 × 7? Reply with only the number.\n2m\nWhat is 23 × 7? Reply with only the number.\n2m\nWhat is 21 × 7? Reply with only the number.\n2m\nSession whose folder was deleted\nFailed\n3m\nSettings\nWhat is 32 × 7? Reply with only the number.\nYou\n\nWhat is 32 × 7? Reply with only the number.\n\n224\n\nTextGuard\nFixture model\nSend\n43%\nStart\nArtifacts\nImages and files produced in this session.\nWorkspace files\nBrowse files in this session's workspace."
+  }
+}
